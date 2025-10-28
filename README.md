@@ -1,3 +1,41 @@
+---
+# High-Level Integration Overview
+
+## Component Integration
+```mermaid
+flowchart LR
+    subgraph Frontend["React Frontend"]
+        A1[SearchBar Component]
+        A2[WeatherDisplay Component]
+        A3[DefaultLocation Component]
+        A4[useWeather Hook]
+        A5[useUserPreferences Hook]
+    end
+
+    subgraph Backend["ASP.NET Core Web API"]
+        B1[WeatherController]
+        B2[UserPreferenceController]
+        B3[WeatherService]
+        B4[UserPreferenceService]
+        B5[IMemoryCache]
+        B6[Polly Retry Policy]
+    end
+
+    subgraph External["External APIs"]
+        C1[(OpenWeatherMap API)]
+    end
+
+    A1 -->|fetchWeather()| B1
+    A3 -->|setDefaultCity()| B2
+    B1 -->|calls| B3
+    B3 -->|retry + cache| B5
+    B3 -->|fetch weather data| C1
+    B2 -->|cache default city| B4
+    B4 --> B5
+```
+
+---
+
 # React Weather Dashboard Application Setup Guide
 
 A lightweight React frontend for the Weather Dashboard Application that connects to an ASP.NET Core Web API backend.

@@ -25,15 +25,13 @@ flowchart LR
         C1[(OpenWeatherMap API)]
     end
 
-    A1 -->|fetchWeather()| B1
-    A3 -->|setDefaultCity()| B2
-    B1 -->|calls| B3
-    B3 -->|retry + cache| B5
-    B3 -->|fetch weather data| C1
-    B2 -->|cache default city| B4
-    B4 --> B5
-```
-
+    A1 -->|fetchWeather()| B1;
+    A3 -->|setDefaultCity()| B2;
+    B1 -->|calls| B3;
+    B3 -->|retry + cache| B5;
+    B3 -->|fetch weather data| C1;
+    B2 -->|cache default city| B4;
+    B4 --> B5;
 ---
 
 # React Weather Dashboard Application Setup Guide

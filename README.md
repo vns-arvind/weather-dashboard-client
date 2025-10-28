@@ -1,4 +1,4 @@
----
+
 # High-Level Integration Overview
 
 ## Component Integration

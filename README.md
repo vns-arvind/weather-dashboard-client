@@ -32,6 +32,7 @@ flowchart LR
     B3 -->|fetch weather data| C1;
     B2 -->|cache default city| B4;
     B4 --> B5;
+```
 ---
 
 # React Weather Dashboard Application Setup Guide
